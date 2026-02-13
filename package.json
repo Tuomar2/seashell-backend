@@ -10,6 +10,9 @@
     "prisma": "prisma",
     "test": "jest"
   },
+  "prisma": {
+  "seed": "ts-node prisma/seed.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tuomar2/seashell-backend.git"

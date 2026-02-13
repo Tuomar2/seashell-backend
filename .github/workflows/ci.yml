@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Validate Prisma schema + generate client
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      # 5. Run migrations on a fresh SQLite DB
+      - name: Apply Prisma migrations
+        run: npx prisma migrate deploy
+        env:
+          # DATABASE_URL = file:./ci.db is stored as a GitHub Secret.
+          # For SQLite this is not sensitive, but in real deployments
+          # (e.g. Postgres credentials) secrets are best practice.
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      # 6. Build TypeScript project
+      - name: Build project
+        run: npm run build
+
+      # 7. Run tests
+      - name: Run tests
+        run: npm test
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}

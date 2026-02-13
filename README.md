@@ -1,3 +1,6 @@
+![CI](https://github.com/Tuomar2/seashell-backend/actions/workflows/ci.yml/badge.svg)
+
+
 # 🐚 Seashell Collection Backend API
 
 Backend challenge implementation for James and Anna’s seashell collection app.
@@ -27,6 +30,11 @@ Create a .env file in the project root:
 DATABASE_URL="file:./dev.db"
 PORT=3000
 
+OR
+```bash
+cp .env.example .env !!
+```
+
 ### 3️⃣ Setup the project
 
 ```bash
@@ -43,6 +51,14 @@ The API can also be started using Docker:
 
 ```bash
 docker compose up --build
+```
+
+## 🌱 Seed Example Data (Optional)
+
+To populate the database with sample seashells:
+
+```bash
+npx prisma db seed
 ```
 
 ## 📌 API Endpoints
