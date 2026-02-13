@@ -36,6 +36,14 @@ npm run dev
 
 ```
 
+## 🐳 Run with Docker
+
+The API can also be started using Docker:
+
+```bash
+docker compose up --build
+```
+
 ## 📌 API Endpoints
 
 The backend runs locally at:
@@ -72,11 +80,11 @@ Copy-paste example for creating a new seashell:
 
 Basic API tests are included using **Jest**
 
-✅ Health check works
-✅ List all seashells
-✅ Create a new seashell
-✅ Validation error (missing name)
-✅ Invalid ID handling
+- ✅ Health check works
+- ✅ List all seashells
+- ✅ Create a new seashell
+- ✅ Validation error (missing name)
+- ✅ Invalid ID handling
 
 ```bash
 npm test
