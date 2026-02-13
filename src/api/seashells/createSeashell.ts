@@ -31,6 +31,14 @@ import { prisma } from "../../prisma";
  *                 type: string
  *               collectedBy:
  *                 type: string
+ *           example:
+ *             name: "Conch Shell"
+ *             color: "Pink"
+ *             size: "Medium"
+ *             species: "Gastropod"
+ *             description: "Found near the pier"
+ *             location: "Hanko Beach"
+ *             collectedBy: "Anna"
  *     responses:
  *       201:
  *         description: Seashell created successfully
@@ -38,9 +46,20 @@ import { prisma } from "../../prisma";
  *           application/json:
  *             schema:
  *               $ref: "#/components/schemas/Seashell"
+ *             example:
+ *               id: 1
+ *               name: "Conch Shell"
+ *               color: "Pink"
+ *               size: "Medium"
+ *               species: "Gastropod"
+ *               description: "Found near the pier"
+ *               location: "Hanko Beach"
+ *               collectedBy: "Anna"
+ *               createdAt: "2026-02-13T12:00:00.000Z"
  *       400:
- *         description: Validation error
+ *         description: Validation error (missing required fields)
  */
+
 export const createSeashell = async (req: Request, res: Response) => {
   try {
     const { name, color, size, species, description, location, collectedBy } =

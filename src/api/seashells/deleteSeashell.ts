@@ -8,18 +8,25 @@ import { prisma } from "../../prisma";
  * /seashells/{id}:
  *   delete:
  *     summary: Delete a seashell
+ *     description: Removes a seashell from the collection by its ID.
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: integer
+ *         example: 1
  *     responses:
  *       204:
- *         description: Seashell deleted successfully
+ *         description: Seashell deleted successfully (no content returned)
  *       404:
  *         description: Seashell not found
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: "Seashell not found"
  */
+
 export const deleteSeashell = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
