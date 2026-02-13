@@ -68,6 +68,20 @@ Copy-paste example for creating a new seashell:
 }
 ```
 
+## 🧪 Testing
+
+Basic API tests are included using **Jest**
+
+✅ Health check works
+✅ List all seashells
+✅ Create a new seashell
+✅ Validation error (missing name)
+✅ Invalid ID handling
+
+```bash
+npm test
+```
+
 ## 🚀 Tech Stack
 
 - **Node.js + Express**
@@ -95,3 +109,10 @@ For persistence, I used **SQLite** as a simple lightweight database, along with 
 - ✅ Interactive Swagger documentation for frontend developers
 - ✅ Clean modular API structure
 
+## ⚠️ Error Handling
+
+The API includes simple middleware for consistent error responses:
+
+- **400 Bad Request** for invalid IDs (e.g. `/seashells/abc`)
+- **404 Not Found** for unknown routes or missing seashells
+- **500 Internal Server Error** for unexpected server errors

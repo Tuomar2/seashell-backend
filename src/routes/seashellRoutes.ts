@@ -6,12 +6,14 @@ import { createSeashell } from "../api/seashells/createSeashell";
 import { updateSeashell } from "../api/seashells/updateSeashell";
 import { deleteSeashell } from "../api/seashells/deleteSeashell";
 
+import { validateId } from "../middleware/errorHandlers";
+
 const router = Router();
 
 router.get("/", listSeashells);
-router.get("/:id", getSeashellById);
 router.post("/", createSeashell);
-router.put("/:id", updateSeashell);
-router.delete("/:id", deleteSeashell);
+router.get("/:id", validateId, getSeashellById);
+router.put("/:id", validateId, updateSeashell);
+router.delete("/:id", validateId, deleteSeashell);
 
 export default router;
