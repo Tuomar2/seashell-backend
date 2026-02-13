@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// url in the 7.4 version of prisma is not working, so I have to set it in the config file
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Seashell {
+  id          Int      @id @default(autoincrement())
+  name        String
+  color       String?
+  size        String?
+  species     String?
+  description String?
+  location    String?
+  collectedBy String?
+  created     DateTime @default(now())
+}
