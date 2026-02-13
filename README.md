@@ -19,7 +19,7 @@ This project provides a simple REST API for managing a seashell collection with 
 git clone https://github.com/<your-username>/seashell-backend.git
 cd seashell-backend
 
----
+```
 
 ### 2️⃣ Create env file
 
@@ -34,7 +34,7 @@ npm install
 npx prisma migrate dev
 npm run dev
 
----
+```
 
 ## 📌 API Endpoints
 
@@ -56,7 +56,7 @@ The backend includes a health check endpoint at `/health` and interactive API do
 
 Copy-paste example for creating a new seashell:
 
-```bash
+```json
 {
   "name": "Conch Shell",
   "color": "Pink",
@@ -66,7 +66,7 @@ Copy-paste example for creating a new seashell:
   "location": "Hanko Beach",
   "collectedBy": "Anna"
 }
----
+```
 
 ## 🚀 Tech Stack
 
