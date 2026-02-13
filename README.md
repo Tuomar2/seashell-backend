@@ -19,6 +19,8 @@ This project provides a simple REST API for managing a seashell collection with 
 git clone https://github.com/<your-username>/seashell-backend.git
 cd seashell-backend
 
+---
+
 ### 2️⃣ Create env file
 
 Create a .env file in the project root:
@@ -54,6 +56,7 @@ The backend includes a health check endpoint at `/health` and interactive API do
 
 Copy-paste example for creating a new seashell:
 
+```bash
 {
   "name": "Conch Shell",
   "color": "Pink",
@@ -63,6 +66,7 @@ Copy-paste example for creating a new seashell:
   "location": "Hanko Beach",
   "collectedBy": "Anna"
 }
+---
 
 ## 🚀 Tech Stack
 
@@ -71,6 +75,15 @@ Copy-paste example for creating a new seashell:
 - **Prisma ORM**
 - **SQLite** (local persistent database)
 - **Swagger/OpenAPI Docs**
+
+## 🛠️ Tech Stack Reasoning
+
+I chose **TypeScript** because it is the language I have the most experience with, allowing me to focus on delivering a solid solution within the given timeframe. The backend is built with **Node.js and Express**, as they are familiar and well suited for implementing a lightweight REST API.
+
+I included **Swagger/OpenAPI** to provide clear and easy-to-consume documentation for frontend integration.
+
+For persistence, I used **SQLite** as a simple lightweight database, along with **Prisma ORM** to manage the schema and migrations. While migrations may be overkill for this small task, they support future development and gave me a chance to apply Prisma in practice.
+
 
 ---
 
