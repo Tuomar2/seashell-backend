@@ -39,6 +39,7 @@ npm run dev
 ## 🐳 Run with Docker
 
 The API can also be started using Docker:
+(added this after the returning the task.)
 
 ```bash
 docker compose up --build
