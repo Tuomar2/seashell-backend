@@ -26,5 +26,5 @@ app.use(notFound);
 // Global error handler (last middleware)
 app.use(errorHandler);
 
-
+app.disable("x-powered-by");
 export default app;

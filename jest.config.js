@@ -10,6 +10,12 @@ module.exports = {
     ...tsJestTransformCfg,
   },
 
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.test.json",
+    },
+  },
+
   collectCoverage: true,
   coverageDirectory: "coverage",
   coverageReporters: ["lcov", "text"],
@@ -20,6 +26,5 @@ module.exports = {
     "!src/**/index.ts",
   ],
 
-  // 👇 ignore compiled files
   testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 };
