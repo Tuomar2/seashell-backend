@@ -4,15 +4,20 @@ WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
 
 # Copy source code
 COPY . .
 
-# Generate Prisma client + build in one layer
-RUN npx prisma generate && npm run build
+# Single RUN for everything
+RUN npm install && \
+    npx prisma generate && \
+    npm run build && \
+    addgroup -S appgroup && \
+    adduser -S appuser -G appgroup && \
+    chown -R appuser:appgroup /app
+
+USER appuser
 
 EXPOSE 3000
 
 CMD ["sh", "-c", "npx prisma migrate deploy && npm start"]
-

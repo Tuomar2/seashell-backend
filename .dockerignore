@@ -3,3 +3,8 @@ dist
 .git
 .env
 *.db
+.gitignore
+.env
+coverage
+npm-debug.log
+Dockerfile
