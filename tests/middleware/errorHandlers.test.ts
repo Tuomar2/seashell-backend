@@ -1,4 +1,4 @@
-import { notFound, errorHandler, validateId } from "../../middleware/errorHandlers";
+import { notFound, errorHandler, validateId } from "../../src/middleware/errorHandlers";
 
 describe("middleware tests", () => {
   const mockRes = () => {

@@ -1,7 +1,7 @@
-import { updateSeashell } from "../../api/seashells/updateSeashell";
-import { prisma } from "../../prisma";
+import { updateSeashell } from "../../src/api/seashells/updateSeashell";
+import { prisma } from "../../src/prisma";
 
-jest.mock("../../prisma", () => ({
+jest.mock("../../src/prisma", () => ({
   prisma: {
     seashell: {
       findUnique: jest.fn(),

@@ -1,5 +1,5 @@
 import request from "supertest";
-import app from "../../app";
+import app from "../../src/app";
 
 describe("POST /seashells", () => {
   it("should create a new seashell", async () => {

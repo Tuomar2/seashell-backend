@@ -1,7 +1,7 @@
-import { deleteSeashell } from "../../api/seashells/deleteSeashell";
-import { prisma } from "../../prisma";
+import { deleteSeashell } from "../../src/api/seashells/deleteSeashell";
+import { prisma } from "../../src/prisma";
 
-jest.mock("../../prisma", () => ({
+jest.mock("../../src/prisma", () => ({
   prisma: {
     seashell: {
       findUnique: jest.fn(),
