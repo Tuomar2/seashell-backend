@@ -1,3 +1,8 @@
+const { createDefaultPreset } = require("ts-jest");
+
+const tsJestTransformCfg = createDefaultPreset().transform;
+
+/** @type {import("jest").Config} **/
 module.exports = {
   testEnvironment: "node",
 
@@ -15,6 +20,6 @@ module.exports = {
     "!src/**/index.ts",
   ],
 
-  // 👇 ADD THIS
+  // 👇 ignore compiled files
   testPathIgnorePatterns: ["/node_modules/", "/dist/"],
 };
