@@ -30,13 +30,17 @@ import { prisma } from "../../prisma";
 export const deleteSeashell = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
-  try {
-    await prisma.seashell.delete({
-      where: { id },
-    });
+  const seashell = await prisma.seashell.findUnique({
+    where: { id },
+  });
 
-    res.status(204).send();
-  } catch (error) {
+  if (!seashell) {
     return res.status(404).json({ message: "Seashell not found" });
   }
+
+  await prisma.seashell.delete({
+    where: { id },
+  });
+
+  res.status(204).send();
 };

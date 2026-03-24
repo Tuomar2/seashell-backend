@@ -63,11 +63,11 @@ async function main() {
   console.log("Seeded 5 seashells into the database!");
 }
 
-main()
-  .catch((e) => {
-    console.error("Seeding failed:", e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+try {
+  await main();
+} catch (e) {
+  console.error("Seeding failed:", e);
+  process.exit(1);
+} finally {
+  await prisma.$disconnect();
+}

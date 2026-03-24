@@ -48,14 +48,18 @@ import { prisma } from "../../prisma";
 export const updateSeashell = async (req: Request, res: Response) => {
   const id = Number(req.params.id);
 
-  try {
-    const updated = await prisma.seashell.update({
-      where: { id },
-      data: req.body,
-    });
+  const existing = await prisma.seashell.findUnique({
+    where: { id },
+  });
 
-    res.json(updated);
-  } catch (error) {
+  if (!existing) {
     return res.status(404).json({ message: "Seashell not found" });
   }
+
+  const updated = await prisma.seashell.update({
+    where: { id },
+    data: req.body,
+  });
+
+  res.json(updated);
 };
